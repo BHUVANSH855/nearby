@@ -42,6 +42,13 @@ a:hover {
     color: var(--nearby-accent);
 }
 
+.brand-logo {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+}
+
 .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.4);
 }
@@ -66,6 +73,53 @@ a:hover {
 .hero-section {
     position: relative;
     gap: 2rem;
+}
+
+
+.hero-slider {
+    margin-top: -2rem;
+}
+
+.hero-slider .carousel {
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 25px 55px rgba(16, 59, 47, 0.22);
+}
+
+.hero-slider .carousel-item {
+    position: relative;
+    height: 420px;
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slider-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(16, 59, 47, 0.68), rgba(16, 59, 47, 0.25));
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+}
+
+.slider-content {
+    position: absolute;
+    inset: 0;
+    color: #fff;
+    padding: 3rem 0;
+}
+
+.slider-content .container {
+    max-width: 720px;
+}
+
+.hero-slider .carousel-control-next-icon,
+.hero-slider .carousel-control-prev-icon {
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
 }
 
 .hero-card {
@@ -137,14 +191,35 @@ a:hover {
 }
 
 .btn-primary {
-    background: var(--nearby-primary);
-    border-color: var(--nearby-primary);
+    background: linear-gradient(135deg, #46c07c, #2f9a63);
+    border-color: #2f9a63;
+    box-shadow: 0 8px 18px rgba(47, 154, 99, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background: var(--nearby-secondary);
-    border-color: var(--nearby-secondary);
+    background: linear-gradient(135deg, #3bb273, #247b52);
+    border-color: #247b52;
+    box-shadow: 0 12px 24px rgba(36, 123, 82, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-light {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(230, 255, 241, 0.95));
+    border-color: rgba(255, 255, 255, 0.85);
+    color: var(--nearby-secondary);
+    box-shadow: 0 6px 16px rgba(16, 59, 47, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-light:hover,
+.btn-light:focus {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(210, 250, 230, 0.98));
+    border-color: rgba(68, 187, 116, 0.5);
+    color: var(--nearby-secondary);
+    box-shadow: 0 10px 20px rgba(16, 59, 47, 0.2);
+    transform: translateY(-2px);
 }
 
 .btn-outline-light {
@@ -159,6 +234,83 @@ a:hover {
     display: grid;
     place-items: center;
     color: var(--nearby-secondary);
+}
+
+.featured-card {
+    overflow: hidden;
+}
+
+.featured-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: saturate(110%);
+    transition: transform 0.4s ease;
+}
+
+.featured-card:hover .featured-image {
+    transform: scale(1.05);
+}
+
+.feature-tag {
+    background: rgba(68, 187, 116, 0.15);
+    color: var(--nearby-secondary);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.icon-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    display: grid;
+    place-items: center;
+    color: var(--nearby-secondary);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), 0 8px 14px rgba(16, 59, 47, 0.18);
+}
+
+.step-card {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.step-card::before {
+    content: attr(data-step);
+    position: absolute;
+    left: -1.5rem;
+    top: 1rem;
+    font-weight: 600;
+    color: rgba(16, 59, 47, 0.35);
+    font-size: 2.5rem;
+}
+
+.accordion-glass .accordion-item {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.accordion-glass .accordion-button {
+    background: transparent;
+    color: var(--nearby-secondary);
+    font-weight: 500;
+}
+
+.accordion-glass .accordion-button:not(.collapsed) {
+    background: rgba(68, 187, 116, 0.1);
+    color: var(--nearby-secondary);
+    box-shadow: none;
+}
+
+.accordion-glass .accordion-body {
+    color: var(--nearby-muted);
 }
 
 .facility-checkbox .form-check-input {
@@ -211,6 +363,14 @@ a:hover {
     .hero-illustration {
         padding: 1.75rem;
     }
+
+    .hero-slider {
+        margin-top: -3.5rem;
+    }
+
+    .hero-slider .carousel-item {
+        height: 360px;
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -221,5 +381,23 @@ a:hover {
 
     .glass-card {
         border-radius: 16px;
+    }
+
+    .hero-slider {
+        margin-top: -4rem;
+    }
+
+    .hero-slider .carousel-item {
+        height: 320px;
+    }
+
+    .slider-content {
+        padding: 2.5rem 0;
+    }
+
+    .slider-content .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        text-align: center;
     }
 }
