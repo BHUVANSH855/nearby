@@ -94,6 +94,8 @@ require_once __DIR__ . '/includes/header.php';
         </div>
     </form>
 
+    <div id="searchResults" class="row g-4"></div>
+
     <section class="glass-card p-4 p-lg-5 mb-5" data-map-explorer>
         <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 align-items-lg-center mb-4">
             <div>
@@ -151,9 +153,6 @@ require_once __DIR__ . '/includes/header.php';
         </div>
     </section>
 
-
-
-    <div id="searchResults" class="row g-4"></div>
     <div class="glass-card p-4 p-md-5 mb-5">
         <div class="row g-4 align-items-center">
             <div class="col-md-5">
