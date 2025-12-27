@@ -1,6 +1,6 @@
 <?php
 $pageTitle = 'Login | NearBy';
-$pageScripts = ['assets/js/auth.js'];
+$pageScripts = ['assets/js/auth.js', 'assets/js/google-login.js'];
 require_once __DIR__ . '/includes/header.php';
 ?>
 <div class="row justify-content-center" data-app-alerts>
@@ -28,6 +28,13 @@ require_once __DIR__ . '/includes/header.php';
                     <div class="invalid-feedback">Please select your role</div>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Login</button>
+                <div class="text-center my-3">
+                    <span class="text-muted small">or</span>
+                </div>
+                <button type="button" class="btn btn-google w-100" data-google-login>
+                    <i class="bi bi-google me-2"></i><span>Continue with Google</span>
+                </button>
+                <p class="small text-muted text-center mt-2 mb-0">Use Google only after creating a NearBy account.</p>
             </form>
             <p class="small text-muted text-center mt-4 mb-0">New here? <a href="register.php">Create an account</a></p>
         </div>

@@ -72,11 +72,11 @@ require_once __DIR__ . '/includes/header.php';
                     <option value="Family">Family</option>
                 </select>
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <label class="form-label" for="filterLocation">Location / Keyword</label>
                 <input type="text" class="form-control" id="filterLocation" name="location"
                     placeholder="MITS Gate, Thatipur, City Center...">
-            </div>
+            </div> -->
             <div class="col-md-3">
                 <label class="form-label" for="filterMinPrice">Min Price (₹)</label>
                 <input type="number" class="form-control" id="filterMinPrice" name="min_price" min="0" step="500"

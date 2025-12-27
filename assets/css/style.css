@@ -395,6 +395,42 @@ a:hover {
     border-radius: 999px;
 }
 
+.btn-google {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    color: var(--nearby-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    box-shadow: 0 8px 18px rgba(16, 59, 47, 0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-google i {
+    font-size: 1.1rem;
+}
+
+.btn-google:hover,
+.btn-google:focus {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(210, 250, 230, 0.9));
+    border-color: rgba(68, 187, 116, 0.55);
+    color: var(--nearby-secondary);
+    box-shadow: 0 12px 24px rgba(16, 59, 47, 0.18);
+    transform: translateY(-2px);
+}
+
+.btn-google:disabled,
+.btn-google.disabled {
+    background: rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.6);
+    color: rgba(16, 59, 47, 0.45);
+    box-shadow: none;
+    transform: none;
+}
+
 [data-pagination] {
     gap: 1.5rem;
 }
