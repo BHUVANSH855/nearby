@@ -11,14 +11,14 @@ The platform eliminates broker dependency and connects **students, property owne
 ![Issues](https://img.shields.io/github/issues/sumitrathor1/nearby)
 ![License](https://img.shields.io/github/license/sumitrathor1/nearby)
 
-🌟 Problem Statement
+## 🌟 Problem Statement
 When students move to a new city for education, they often face challenges such as:
 
-Difficulty finding safe and affordable accommodation
-High brokerage charges
-Unreliable listings and lack of trust
-No single platform for daily local services (food, milk, gas, etc.)
-Feeling lost without local guidance
+-Difficulty finding safe and affordable accommodation
+-High brokerage charges
+-Unreliable listings and lack of trust
+-No single platform for daily local services (food, milk, gas, etc.)
+-Feeling lost without local guidance
 
 
 
