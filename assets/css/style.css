@@ -1037,3 +1037,57 @@ textarea:focus {
     border-color: #198754 !important;
     box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
 }
+
+
+/* ================= MOBILE SPACING & ALIGNMENT FIXES ================= */
+
+@media (max-width: 768px) {
+
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero-section {
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .hero-card {
+    padding: 10px;
+  }
+
+  .glass-card {
+    padding: 16px !important;
+    margin-bottom: 16px;
+  }
+
+  .featured-card {
+    margin-bottom: 18px;
+  }
+
+  .featured-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .row {
+    --bs-gutter-x: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .btn-lg, .btn-primary, .btn-outline-light {
+    width: 100%;
+  }
+
+  .step-card {
+    align-items: flex-start;
+  }
+
+}
