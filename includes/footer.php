@@ -121,6 +121,33 @@
                 <script src="<?= htmlspecialchars($scriptPath) ?>" type="module"></script>
         <?php endforeach; ?>
 <?php endif; ?>
+
+<script>
+const toggleBtn = document.getElementById('dark-mode-toggle');
+const icon = document.getElementById('dark-mode-icon');
+
+// Check local storage to remember preference
+if(localStorage.getItem('darkMode') === 'enabled'){
+    document.body.classList.add('dark-mode');
+    icon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+}
+
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    // Change icon
+    if(document.body.classList.contains('dark-mode')){
+        icon.classList.replace('bi-sun-fill', 'bi-moon-fill');
+        localStorage.setItem('darkMode','enabled');
+    } else {
+        icon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+        localStorage.setItem('darkMode','disabled');
+    }
+});
+</script>
+
 </body>
+
+
 
 </html>

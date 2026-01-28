@@ -56,6 +56,11 @@ $pageScripts = $pageScripts ?? [];
                     <?php else: ?>
                         <a class="btn btn-lg btn-light" href="login.php">Login</a>
                         <a class="btn btn-lg btn-primary" href="register.php">Register</a>
+                    <!-- Dark Mode Toggle Button -->
+<button id="dark-mode-toggle" class="btn btn-outline-secondary btn-lg ms-2" title="Toggle Dark Mode">
+    <i id="dark-mode-icon" class="bi bi-moon-fill"></i>
+</button>
+
                     <?php endif; ?>
                 </div>
             </div>
