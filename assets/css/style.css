@@ -86,13 +86,15 @@ a, .section-title {
 
 .brand-logo {
     height: 55px;
-    width: auto;
     object-fit: contain;
     filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25));
 }
 
 .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.4);
+}
+.nav-item {
+    justify-content: space-between;
 }
 
 .glass-nav {
@@ -102,6 +104,17 @@ a, .section-title {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
     margin: 16px 16px 0;
+    /* Make navbar thinner vertically */
+   padding: 6px 16px;   /* thinner navbar */ /* less vertical padding (was probably bigger before) */
+    height: auto; /* optional: remove fixed height to let padding control thickness */
+
+    /* Position navbar a bit away from top/left */
+    margin: 16px 16px 0;
+
+    display: flex; /* ensure buttons inside align nicely */
+    align-items: center; /* vertically center buttons */
+    justify-content: space-between; /* buttons start from left by default */
+    gap: 16px; /* space between buttons */
 }
 
 .glass-footer {
@@ -160,7 +173,7 @@ a, .section-title {
 }
 
 .footer-logo {
-    width: 9rem;
+    width: 11rem;
 }
 
 .footer-heading {
@@ -793,8 +806,8 @@ a, .section-title {
 }
 
 .icon-circle {
-    width: 52px;
-    height: 52px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.4);
     display: grid;
@@ -1080,6 +1093,7 @@ textarea:focus {
     box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
 }
 
+}
 
 /* ================= MOBILE SPACING & ALIGNMENT FIXES ================= */
 
@@ -1132,4 +1146,41 @@ textarea:focus {
     align-items: flex-start;
   }
 
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: var(--nearby-primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: var(--nearby-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top i {
+  font-size: 1.2rem;
 }

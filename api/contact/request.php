@@ -3,16 +3,14 @@ header('Content-Type: application/json');
 require_once __DIR__ . '/../../config/db.php';
 require_once __DIR__ . '/../../includes/helpers/csrf.php';
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+startSecureSession();
 
 // Validate CSRF token
 requireCSRFToken();
 
 $user = $_SESSION['user'] ?? null;
 
-if (!$user) {
+if (!isSessionValid() || !$user) {
     http_response_code(401);
     echo json_encode(['success' => false, 'message' => 'Please login to contact the owner']);
     exit;

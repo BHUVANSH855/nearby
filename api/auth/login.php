@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 requireCSRFToken();
 
 if (session_status() === PHP_SESSION_NONE) {
-	session_start();
+	startSecureSession();
 }
 
 // Rate limiting for login attempts
@@ -71,7 +71,7 @@ if (!$user || !password_verify($password, $user['password']) || $user['role'] !=
 }
 
 // Regenerate session ID to prevent session fixation
-session_regenerate_id(true);
+regenerateSessionAfterLogin();
 
 $_SESSION['user'] = [
 	'id' => (int) $user['id'],
