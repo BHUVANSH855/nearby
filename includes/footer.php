@@ -83,14 +83,23 @@
                     </a>
 
                     <!-- Twitter/X -->
-                    <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <a class="social-link" href="https://twitter.com/nearbyhousing" target="_blank"
+                        rel="noopener noreferrer" aria-label="X (Twitter)">
                         <i class="bi bi-twitter-x"></i>
-                        <span class="visually-hidden">Twitter</span>
+                        <span class="visually-hidden">X (Twitter)</span>
                     </a>
 
-                    <!-- Instagram (New) -->
-                    <a class="social-link" href="https://www.instagram.com/yourprofile" target="_blank"
+                    <a class="social-link" href="https://instagram.com/nearbyhousing" target="_blank"
                         rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                        <span class="visually-hidden">Instagram</span>
+                    </a>
+
+                    <a class="social-link" href="https://facebook.com/nearbyhousing" target="_blank"
+                        rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                        <span class="visually-hidden">Facebook</span>
+                    </a>
                         <i class="bi bi-instagram"></i>
                         <span class="visually-hidden">Instagram</span>
                     </a>
@@ -107,6 +116,7 @@
     </div>
 </footer>
 
+<<<<<<< HEAD
 <?php if (!empty($enableChatbot)): ?>
     <?php include __DIR__ . '/chatbot-widget.php'; ?>
 <?php endif; ?>
@@ -145,6 +155,33 @@ toggleBtn.addEventListener('click', () => {
     }
 });
 </script>
+
+<!-- Back to Top Button Script -->
+<script>
+const backToTopBtn = document.getElementById('backToTop');
+
+// Show/hide button based on scroll position
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+
+// Smooth scroll to top when clicked
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+</script>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+</button>
 
 </body>
 
