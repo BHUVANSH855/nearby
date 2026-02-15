@@ -35,9 +35,9 @@
             <div class="col-sm-6 col-lg-2">
                 <h6 class="footer-heading">Important links</h6>
                 <ul class="footer-list">
-                    <li><a href="#">Privacy policy</a></li>
-                    <li><a href="#">Terms of use</a></li>
-                    <li><a href="guidance.php">FAQ</a></li>
+                    <li><a href="privacy.php">Privacy Policy</a></li>
+                    <li><a href="terms.php">Terms of Use</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
                     <li><a href="login.php">My account</a></li>
                     <li><a href="register.php">Register</a></li>
                 </ul>
