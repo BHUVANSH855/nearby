@@ -93,9 +93,7 @@ a, .section-title {
 .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.4);
 }
-.nav-item {
-    justify-content: space-between;
-}
+
 
 .glass-nav {
     background: rgba(40, 89, 60, 0.45);
@@ -110,11 +108,6 @@ a, .section-title {
 
     /* Position navbar a bit away from top/left */
     margin: 16px 16px 0;
-
-    display: flex; /* ensure buttons inside align nicely */
-    align-items: center; /* vertically center buttons */
-    justify-content: space-between; /* buttons start from left by default */
-    gap: 16px; /* space between buttons */
 }
 
 .glass-footer {
@@ -1093,8 +1086,6 @@ textarea:focus {
     box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
 }
 
-}
-
 /* ================= MOBILE SPACING & ALIGNMENT FIXES ================= */
 
 @media (max-width: 768px) {
@@ -1136,10 +1127,6 @@ textarea:focus {
     font-size: 1.4rem;
     margin-bottom: 12px;
     text-align: center;
-  }
-
-  .btn-lg, .btn-primary, .btn-outline-light {
-    width: 100%;
   }
 
   .step-card {

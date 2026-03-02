@@ -51,15 +51,15 @@ $pageScripts = $pageScripts ?? [];
                         <li class="nav-item"><a class="nav-link" href="senior-dashboard.php">Senior Dashboard</a></li>
                     <?php endif; ?>
                 </ul>
-                <div class="d-flex gap-2">
+                <div class="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
                     <?php if ($currentUser): ?>
                         <span class="navbar-text small text-white-50 me-2">Hi, <?= htmlspecialchars($currentUser['name']) ?></span>
                         <a class="btn btn-sm btn-outline-light" href="logout.php">Logout</a>
                     <?php else: ?>
-                        <a class="btn btn-lg btn-light" href="login.php">Login</a>
-                        <a class="btn btn-lg btn-primary" href="register.php">Register</a>
+                        <a class="btn btn-sm btn-light w-100 w-sm-auto" href="login.php">Login</a>
+                        <a class="btn btn-sm btn-primary w-100 w-sm-auto" href="register.php">Register</a>
                     <!-- Dark Mode Toggle Button -->
-<button id="dark-mode-toggle" class="btn btn-outline-secondary btn-lg ms-2" title="Toggle Dark Mode">
+<button id="dark-mode-toggle" class="btn btn-outline-secondary btn-sm w-100 w-sm-auto" title="Toggle Dark Mode">
     <i id="dark-mode-icon" class="bi bi-moon-fill"></i>
 </button>
 
