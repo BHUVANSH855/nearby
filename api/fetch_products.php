@@ -29,6 +29,7 @@ $condition = $_GET['condition'] ?? null;
 $search = $_GET['search'] ?? null;
 $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 20;
 $offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
+$sort = $_GET['sort'] ?? 'latest';
 
 // Build query
 $query = "SELECT p.*, 'Student Seller' as seller_name FROM products p WHERE 1=1";
@@ -64,7 +65,23 @@ if ($search) {
 }
 
 // Add ordering and pagination
-$query .= " ORDER BY p.created_at DESC LIMIT ? OFFSET ?";
+// Apply sorting
+switch ($sort) {
+
+    case 'price_low':
+        $query .= " ORDER BY p.price ASC";
+        break;
+
+    case 'price_high':
+        $query .= " ORDER BY p.price DESC";
+        break;
+
+    case 'latest':
+    default:
+        $query .= " ORDER BY p.created_at DESC";
+}
+
+$query .= " LIMIT ? OFFSET ?";
 $params[] = $limit;
 $params[] = $offset;
 $types .= "ii";
