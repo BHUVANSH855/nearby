@@ -11,9 +11,12 @@ require_once __DIR__ . '/includes/header.php';
     </div>
     <div class="row g-4">
         <div class="col-lg-4">
-            <div class="glass-card p-4 h-100">
-                <h2 class="h5 fw-semibold mb-3"><i class="bi bi-egg-fried me-2 text-success"></i>Food & Mess</h2>
-                <ul class="list-unstyled d-grid gap-3 small text-muted mb-0">
+            <div class="glass-card p-4 h-100 guidance-card">
+                <h2 class="h5 fw-semibold mb-2">
+<i class="bi bi-egg-fried me-2 text-success"></i>Food & Mess
+</h2>
+<p class="small text-muted mb-3">Popular mess and tiffin services around campus.</p>
+                <ul class="list-unstyled d-grid gap-3 small text-muted mb-0 guidance-list">
                     <li>
                         <p class="fw-semibold text-dark mb-1">Campus Delight Mess</p>
                         <p class="mb-0">Veg and non-veg meals · ₹2500/month · 7:30AM–10PM</p>
@@ -30,9 +33,9 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="glass-card p-4 h-100">
+            <div class="glass-card p-4 h-100 guidance-card">
                 <h2 class="h5 fw-semibold mb-3"><i class="bi bi-bus-front me-2 text-success"></i>Transport</h2>
-                <ul class="list-unstyled d-grid gap-3 small text-muted mb-0">
+                <ul class="list-unstyled d-grid gap-3 small text-muted mb-0 guidance-list">
                     <li>
                         <p class="fw-semibold text-dark mb-1">Shuttle Bus Route</p>
                         <p class="mb-0">Campus ↔ City Center · Every 20 mins (6AM–10PM)</p>
@@ -49,9 +52,9 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="glass-card p-4 h-100">
+            <div class="glass-card p-4 h-100 guidance-card">
                 <h2 class="h5 fw-semibold mb-3"><i class="bi bi-activity me-2 text-success"></i>Services</h2>
-                <ul class="list-unstyled d-grid gap-3 small text-muted mb-0">
+                <ul class="list-unstyled d-grid gap-3 small text-muted mb-0 guidance-list">
                     <li>
                         <p class="fw-semibold text-dark mb-1">CityCare Hospital</p>
                         <p class="mb-0">24x7 emergency · Student health desk available.</p>
@@ -98,10 +101,21 @@ document.addEventListener('DOMContentLoaded', function() {
                         list.innerHTML = '';
                         categories[category].forEach(item => {
                             const li = document.createElement('li');
-                            li.innerHTML = `
-                                <p class="fw-semibold text-dark mb-1">${item.title}</p>
-                                <p class="mb-0">${item.description}</p>
-                            `;
+                            li.classList.add('guidance-item');
+
+li.innerHTML = `
+    <div class="d-flex justify-content-between align-items-start gap-2">
+        <div>
+            <p class="fw-semibold text-dark mb-1">${item.title}</p>
+            <p class="mb-1">${item.description}</p>
+        </div>
+        <a href="https://maps.google.com/?q=${encodeURIComponent(item.title)}" 
+           target="_blank" 
+           class="btn btn-sm btn-outline-success guidance-map-btn">
+            <i class="bi bi-geo-alt"></i>
+        </a>
+    </div>
+`;
                             list.appendChild(li);
                         });
                     }
