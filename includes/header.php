@@ -29,21 +29,9 @@ $pageScripts = $pageScripts ?? [];
 </head>
 <body>
 <div class="app-wrapper d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg glass-nav navbar-dark fixed-top shadow-sm py-3">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.php">
-                
-                <img src="assets/images/nearby_image.png" class="brand-logo" alt="NearBy logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="primaryNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="search.php">Search</a></li>
-                    <li class="nav-item"><a class="nav-link" href="guidance.php">Local Guidance</a></li>
-                    <li class="nav-item"><a class="nav-link" href="second-hand-products.php">Second-Hand</a></li>
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top shadow-sm">
+    <div class="container-fluid px-5">
+
 
                     <?php if ($currentUser && $currentUser['role'] === 'junior'): ?>
                         <li class="nav-item"><a class="nav-link" href="junior-dashboard.php">Junior Dashboard</a></li>
@@ -63,10 +51,42 @@ $pageScripts = $pageScripts ?? [];
     <i id="dark-mode-icon" class="bi bi-moon-fill"></i>
 </button>
 
-                    <?php endif; ?>
-                </div>
-            </div>
+        <a class="navbar-brand logo-text" href="index.php">
+    NearBy
+</a>
+
+        <button class="navbar-toggler border-0" type="button"
+            data-bs-toggle="collapse" data-bs-target="#primaryNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="primaryNav">
+
+            <ul class="navbar-nav align-items-center gap-lg-4 me-4">
+                <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="search.php">Search</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="guidance.php">Local Guidance</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="second-hand-products.php">Second-Hand</a></li>
+            </ul>
+
+            <div class="d-flex align-items-center gap-2">
+
+    <a class="btn btn-light btn-sm px-3 fw-semibold" href="login.php">Login</a>
+
+    <a class="btn btn-sm px-3 fw-semibold register-btn" href="register.php">Register</a>
+
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle"
+        class="btn btn-sm btn-outline-light ms-1"
+        title="Toggle Dark Mode">
+        <i id="dark-mode-icon" class="bi bi-moon-fill"></i>
+    </button>
+
+</div>
+
+
         </div>
-    </nav>
-    <main class="flex-grow-1 pt-5 mt-4">
-        <div class="container py-5">
+    </div>
+</nav>
+<main class="flex-grow-1" style="margin-top: 60px;">
+    <div class="container py-5">

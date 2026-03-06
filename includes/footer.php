@@ -35,9 +35,9 @@
             <div class="col-sm-6 col-lg-2">
                 <h6 class="footer-heading">Important links</h6>
                 <ul class="footer-list">
-                    <li><a href="#">Privacy policy</a></li>
-                    <li><a href="#">Terms of use</a></li>
-                    <li><a href="guidance.php">FAQ</a></li>
+                    <li><a href="privacy.php">Privacy Policy</a></li>
+                    <li><a href="terms.php">Terms of Use</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
                     <li><a href="login.php">My account</a></li>
                     <li><a href="register.php">Register</a></li>
                 </ul>
@@ -66,50 +66,51 @@
 
                 </div>
 
-                <div class="footer-social d-flex gap-2">
-                    <!-- GitHub -->
-                    <a class="social-link" href="https://github.com/sumitrathor1/nearby" target="_blank"
-                        rel="noopener noreferrer" aria-label="GitHub">
-                        <i class="bi bi-github"></i>
-                        <span class="visually-hidden">GitHub</span>
-                    </a>
+               <div class="footer-social d-flex gap-3">
 
-                    <!-- Email -->
-                    <a class="social-link" href="mailto:sumitrathor142272@gmail.com" target="_blank"
-                        rel="noopener noreferrer" aria-label="Email">
-                        <i class="bi bi-envelope-fill"></i>
-                        <span class="visually-hidden">Email</span>
-                    </a>
+    <!-- GitHub -->
+    <a class="social-link" href="https://github.com/sumitrathor1/nearby" target="_blank"
+        rel="noopener noreferrer" aria-label="GitHub">
+        <i class="bi bi-github"></i>
+        <span class="visually-hidden">GitHub</span>
+    </a>
 
-                    <!-- LinkedIn -->
-                    <a class="social-link" href="https://www.linkedin.com/in/sumitrathor" target="_blank"
-                        rel="noopener noreferrer" aria-label="LinkedIn">
-                        <i class="bi bi-linkedin"></i>
-                        <span class="visually-hidden">LinkedIn</span>
-                    </a>
+    <!-- Email -->
+    <a class="social-link" href="mailto:sumitrathor142272@gmail.com" target="_blank"
+        rel="noopener noreferrer" aria-label="Email">
+        <i class="bi bi-envelope-fill"></i>
+        <span class="visually-hidden">Email</span>
+    </a>
 
-                    <!-- Twitter/X -->
-                    <a class="social-link" href="https://twitter.com/nearbyhousing" target="_blank"
-                        rel="noopener noreferrer" aria-label="X (Twitter)">
-                        <i class="bi bi-twitter-x"></i>
-                        <span class="visually-hidden">X (Twitter)</span>
-                    </a>
+    <!-- LinkedIn -->
+    <a class="social-link" href="https://www.linkedin.com/in/sumitrathor" target="_blank"
+        rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="bi bi-linkedin"></i>
+        <span class="visually-hidden">LinkedIn</span>
+    </a>
 
-                    <a class="social-link" href="https://instagram.com/nearbyhousing" target="_blank"
-                        rel="noopener noreferrer" aria-label="Instagram">
-                        <i class="bi bi-instagram"></i>
-                        <span class="visually-hidden">Instagram</span>
-                    </a>
+    <!-- Twitter/X -->
+    <a class="social-link" href="https://twitter.com/nearbyhousing" target="_blank"
+        rel="noopener noreferrer" aria-label="Twitter">
+        <i class="bi bi-twitter-x"></i>
+        <span class="visually-hidden">Twitter</span>
+    </a>
 
-                    <a class="social-link" href="https://facebook.com/nearbyhousing" target="_blank"
-                        rel="noopener noreferrer" aria-label="Facebook">
-                        <i class="bi bi-facebook"></i>
-                        <span class="visually-hidden">Facebook</span>
-                    </a>
-                        <i class="bi bi-instagram"></i>
-                        <span class="visually-hidden">Instagram</span>
-                    </a>
-                </div>
+    <!-- Instagram -->
+    <a class="social-link" href="https://instagram.com/nearbyhousing" target="_blank"
+        rel="noopener noreferrer" aria-label="Instagram">
+        <i class="bi bi-instagram"></i>
+        <span class="visually-hidden">Instagram</span>
+    </a>
+
+    <!-- Facebook -->
+    <a class="social-link" href="https://facebook.com/nearbyhousing" target="_blank"
+        rel="noopener noreferrer" aria-label="Facebook">
+        <i class="bi bi-facebook"></i>
+        <span class="visually-hidden">Facebook</span>
+    </a>
+
+</div>
             </div>
         </div>
 
@@ -122,7 +123,6 @@
     </div>
 </footer>
 
-<<<<<<< HEAD
 <?php if (!empty($enableChatbot)): ?>
     <?php include __DIR__ . '/chatbot-widget.php'; ?>
 <?php endif; ?>
@@ -131,7 +131,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="assets/js/main.js"></script>
+<script type="module" src="assets/js/main.js"></script>
 <?php if (!empty($pageScripts)): ?>
         <?php foreach ($pageScripts as $scriptPath): ?>
                 <script src="<?= htmlspecialchars($scriptPath) ?>" type="module"></script>
@@ -139,48 +139,56 @@
 <?php endif; ?>
 
 <script>
-const toggleBtn = document.getElementById('dark-mode-toggle');
-const icon = document.getElementById('dark-mode-icon');
+document.addEventListener('DOMContentLoaded', function () {
 
-// Check local storage to remember preference
-if(localStorage.getItem('darkMode') === 'enabled'){
-    document.body.classList.add('dark-mode');
-    icon.classList.replace('bi-moon-fill', 'bi-sun-fill');
-}
+    const toggleBtn = document.getElementById('dark-mode-toggle');
+    const icon = document.getElementById('dark-mode-icon');
 
-toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+    if (!toggleBtn || !icon) return;
 
-    // Change icon
-    if(document.body.classList.contains('dark-mode')){
-        icon.classList.replace('bi-sun-fill', 'bi-moon-fill');
-        localStorage.setItem('darkMode','enabled');
-    } else {
+    // Load saved preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
         icon.classList.replace('bi-moon-fill', 'bi-sun-fill');
-        localStorage.setItem('darkMode','disabled');
     }
+
+    toggleBtn.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+
+        if (document.body.classList.contains('dark-mode')) {
+            icon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            icon.classList.replace('bi-sun-fill', 'bi-moon-fill');
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+
 });
 </script>
 
 <!-- Back to Top Button Script -->
 <script>
-const backToTopBtn = document.getElementById('backToTop');
+document.addEventListener('DOMContentLoaded', function () {
 
-// Show/hide button based on scroll position
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('show');
-    } else {
-        backToTopBtn.classList.remove('show');
-    }
-});
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
 
-// Smooth scroll to top when clicked
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
     });
+
+    backToTopBtn.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
 });
 </script>
 
@@ -188,9 +196,5 @@ backToTopBtn.addEventListener('click', () => {
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <i class="bi bi-arrow-up"></i>
 </button>
-
 </body>
-
-
-
 </html>

@@ -3,6 +3,7 @@
 **NearBy** is a student-centric web platform built to simplify the process of finding **rental rooms, PGs, hostels, and essential local services** in a new city.  
 The platform eliminates broker dependency and connects **students, property owners, and local service providers** directly in a trusted, user-friendly environment.
 
+
 [![Elite Coders](https://img.shields.io/badge/Elite%20Coders-Participant-blue)](https://example.com)
 [![GitHub stars](https://img.shields.io/github/stars/sumitrathor1/nearby)](https://github.com/sumitrathor1/nearby/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/sumitrathor1/nearby)](https://github.com/sumitrathor1/nearby/network/members)
@@ -10,8 +11,48 @@ The platform eliminates broker dependency and connects **students, property owne
 [![License](https://img.shields.io/github/license/sumitrathor1/nearby)](https://github.com/sumitrathor1/nearby/blob/main/LICENSE)
 [![PHP Version](https://img.shields.io/badge/PHP-7.4+-blue)](https://php.net)
 [![MySQL](https://img.shields.io/badge/MySQL-5.7+-orange)](https://mysql.com)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=sumitrathor1.nearby&label=Views)
 
-## 🌟 Problem Statement
+
+## �️ Architecture Diagram
+
+```mermaid
+graph TD
+    A[User] --> B[Web Browser]
+    B --> C[PHP Application Server]
+    C --> D[MySQL Database]
+    C --> E[Google Maps API]
+    C --> F[Gemini AI API]
+    C --> G[Firebase Services]
+    
+    subgraph "Frontend"
+        B1[HTML/CSS/JS]
+        B2[Bootstrap 5.3]
+        B3[AJAX]
+    end
+    
+    subgraph "Backend"
+        C1[PHP Controllers]
+        C2[API Endpoints]
+        C3[Authentication]
+    end
+    
+    subgraph "Database"
+        D1[User Data]
+        D2[Listings]
+        D3[Chat History]
+    end
+    
+    B --> B1
+    B1 --> C
+    C --> C1
+    C1 --> D
+    D --> D1
+```
+
+---
+
+## �🌟 Problem Statement
 
 When students move to a new city for education, they often face challenges such as:
 
@@ -274,6 +315,37 @@ Each role can create and manage their own listings.
 - **Firebase** - Additional services
 
 ---
+## 📂 Project Folder Structure
+
+nearby/
+│
+├── .github/              # GitHub workflows and configuration
+├── admin/                # Admin dashboard and management files
+├── api/                  # API endpoints (AJAX handlers, data fetch logic)
+├── assets/               # Static resources (CSS, JS, images)
+├── config/               # Application configuration files
+├── controllers/          # Business logic and request handling
+├── database/             # Database connection and schema files
+├── docs/                 # Additional project documentation
+├── includes/             # Reusable components (header, footer, modals)
+├── private/             # Internal application files
+│
+├── index.php             # Homepage
+├── search.php            # Accommodation search page
+├── details.php           # Listing details page
+├── login.php             # User login
+├── register.php          # User registration
+├── junior-dashboard.php  # Junior user dashboard
+├── senior-dashboard.php  # Senior user dashboard
+├── second-hand-products.php  # Marketplace page
+├── feedback.php          # Feedback form page
+├── contact.php           # Contact form page
+├── faq.php               # FAQ page
+├── privacy.php           # Privacy policy
+├── terms.php             # Terms of use
+│
+└── README.md             # Project documentation
+
 
 ## 🚀 Future Enhancements
 
