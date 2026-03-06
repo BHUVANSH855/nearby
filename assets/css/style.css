@@ -751,3 +751,39 @@ body div.chatbot-entry .chatbot-panel {
     }
 
 }
+
+/* ============================= */
+/* Local Guidance Page UI        */
+/* ============================= */
+
+.guidance-card{
+    border-radius:16px;
+    transition:all .25s ease;
+}
+
+.guidance-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 24px rgba(0,0,0,0.15);
+}
+
+.guidance-list li{
+    padding:10px;
+    border-radius:8px;
+    transition:background .2s ease;
+}
+
+.guidance-list li:hover{
+    background:rgba(0,0,0,0.03);
+}
+
+.guidance-item{
+    display:block;
+}
+
+.guidance-map-btn{
+    border-radius:6px;
+}
+
+.guidance-map-btn i{
+    font-size:14px;
+}
