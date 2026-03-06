@@ -234,7 +234,6 @@ function showProductDetails(productId) {
 /* ===============================
    Wishlist Feature (#126)
    Uses localStorage to save items
-================================ */
 
 function getWishlist() {
     const saved = localStorage.getItem("nearby_wishlist");
@@ -262,5 +261,42 @@ function toggleWishlist(productId) {
     }
 
     saveWishlist(wishlist);
+async function showProductDetails(productId) {
+
+    try {
+
+        const response = await fetch(`api/fetch_product_details.php?id=${productId}`);
+        const data = await response.json();
+
+        if (!data.success) {
+            alert("Failed to load product details");
+            return;
+        }
+
+        const product = data.product;
+
+        document.getElementById('detailProductTitle').textContent = product.title;
+        document.getElementById('detailProductPrice').textContent = `₹${product.price.toLocaleString('en-IN')}`;
+        document.getElementById('detailProductCondition').textContent = product.condition;
+        document.getElementById('detailProductLocation').textContent = product.location;
+        document.getElementById('detailProductDescription').textContent = product.description;
+        document.getElementById('detailSellerName').textContent = product.seller_name;
+
+        document.getElementById('detailProductImage').src =
+            product.image_url ||
+            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600";
+
+        const modal = new bootstrap.Modal(
+            document.getElementById('productDetailsModal')
+        );
+
+        modal.show();
+
+    } catch (error) {
+
+        console.error("Error loading product:", error);
+        alert("Error loading product details");
+
+    }
 
 }
