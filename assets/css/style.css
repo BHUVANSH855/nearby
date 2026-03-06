@@ -619,7 +619,7 @@ textarea:focus {
 
 body div.chatbot-entry {
     position: fixed !important;
-    bottom: 24px !important;
+    bottom: 90px !important; /* move above scroll button */
     right: 24px !important;
     left: auto !important;
     z-index: 2000 !important;
@@ -645,7 +645,7 @@ body div.chatbot-entry .chatbot-panel {
 /* Mobile fix */
 @media (max-width: 768px) {
     body div.chatbot-entry {
-        bottom: 20px !important;
+        bottom: 80px !important; /* stack above scroll button */
         right: 16px !important;
     }
 }
