@@ -127,6 +127,7 @@
 }
 /* =========================
    Wishlist Button (#126)
+========================= */
 
 .wishlist-btn {
     border-radius: 50%;
@@ -143,7 +144,10 @@
 
 .wishlist-btn:hover {
     background: #fff;
-/* Seller Profile & Trust Indicators */
+}
+/* =========================
+   Seller Profile & Trust Indicators
+========================= */
 
 .seller-info {
     font-size: 0.82rem;
@@ -151,6 +155,7 @@
 
 .seller-info .badge {
     font-size: 0.72rem;
+}
 
 /* ===== Post Your Item CTA Feature (#125) ===== */
 

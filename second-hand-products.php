@@ -137,23 +137,20 @@ require_once __DIR__ . '/includes/header.php';
             <option value="price_low">Price: Low → High</option>
             <option value="price_high">Price: High → Low</option>
         </select>
+
+        <button 
+            class="btn btn-success btn-lg post-item-cta"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#postProductModal">
+            <i class="bi bi-plus-circle me-2"></i>
+            Post Your Item
+        </button>
+
     </div>
 
-            <div class="d-flex justify-content-between align-items-center mb-4">
-    <div class="search-container flex-grow-1 me-3">
-        <input type="text" class="form-control" placeholder="Search products..." data-search-input>
-    </div>
-
-    <button 
-        class="btn btn-success btn-lg post-item-cta"
-        type="button"
-        data-bs-toggle="modal"
-        data-bs-target="#postProductModal">
-        <i class="bi bi-plus-circle me-2"></i>
-        Post Your Item
-    </button>
 </div>
-            <div class="row g-4" data-products-grid>
+            <div class="row g-4 marketplace-grid" data-products-grid>
                 <!-- Products will be loaded here dynamically -->
             </div>
            <div class="text-center mt-4">
@@ -271,9 +268,9 @@ require_once __DIR__ . '/includes/header.php';
 
                     <div class="col-md-5">
                         <img id="detailProductImage"
-                             src=""
-                             class="img-fluid rounded-3"
-                             alt="Product Image">
+     src=""
+     class="img-fluid rounded-3 marketplace-product-image"
+     alt="Product Image">
                     </div>
 
                     <div class="col-md-7">
