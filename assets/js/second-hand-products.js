@@ -23,7 +23,38 @@ const loadMoreButton = document.querySelector('[data-load-more]');
     };
 
     const getActiveValues = (inputs) => inputs.filter(input => input.checked).map(input => input.value);
-
+    const defaultProducts = [
+{
+    id: 0,
+    title: "Single Door Fridge",
+    category: "fridge",
+    price: 4500,
+    condition: "good",
+    location: "MITS Gate",
+    seller_name: "Demo Seller",
+    image_url: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600"
+},
+{
+    id: 0,
+    title: "Study Table",
+    category: "furniture",
+    price: 1500,
+    condition: "good",
+    location: "Hostel Road",
+    seller_name: "Demo Seller",
+    image_url: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=600"
+},
+{
+    id: 0,
+    title: "Room Air Cooler",
+    category: "cooler",
+    price: 2200,
+    condition: "new-like",
+    location: "Thatipur",
+    seller_name: "Demo Seller",
+    image_url: "https://images.unsplash.com/photo-1598300053653-4c5b61a18c64?w=600"
+}
+];
     const fetchProducts = async (append = false) => {
         if (isLoading) return;
         isLoading = true;
@@ -51,9 +82,27 @@ if (sort) params.append('sort', sort);
 
             if (data.success) {
                 if (!append) {
-                    productsGrid.innerHTML = '';
-                    currentOffset = 0;
-                }
+    productsGrid.innerHTML = '';
+    currentOffset = 0;
+}
+
+/* Show default products if database is empty */
+if (!append && data.products.length === 0) {
+
+    defaultProducts.forEach(product => {
+        const productCard = createProductCard(product);
+        productsGrid.appendChild(productCard);
+    });
+
+    if (loadMoreButton) {
+        loadMoreButton.classList.add('d-none');
+    }
+
+    const emptyState = document.querySelector('[data-empty-state]');
+    if (emptyState) emptyState.classList.add('d-none');
+
+    return;
+}
 
                 data.products.forEach(product => {
                     const productCard = createProductCard(product);
@@ -279,15 +328,9 @@ if (sortSelect) {
     }
 });
 
-// Function to show product details (can be expanded)
-function showProductDetails(productId) {
-    // For now, just alert. Can be expanded to modal
-    alert(`Product details for ID: ${productId}`);
-}
-
 /* ===============================
    Wishlist Feature (#126)
-   Uses localStorage to save items
+================================*/
 
 function getWishlist() {
     const saved = localStorage.getItem("nearby_wishlist");
@@ -303,18 +346,21 @@ function toggleWishlist(productId) {
     let wishlist = getWishlist();
 
     if (wishlist.includes(productId)) {
-
         wishlist = wishlist.filter(id => id !== productId);
         alert("Removed from wishlist");
-
     } else {
-
         wishlist.push(productId);
         alert("Saved to wishlist");
-
     }
 
     saveWishlist(wishlist);
+}
+
+
+/* ===============================
+   Product Details Modal
+================================*/
+
 async function showProductDetails(productId) {
 
     try {
@@ -330,7 +376,9 @@ async function showProductDetails(productId) {
         const product = data.product;
 
         document.getElementById('detailProductTitle').textContent = product.title;
-        document.getElementById('detailProductPrice').textContent = `₹${product.price.toLocaleString('en-IN')}`;
+        document.getElementById('detailProductPrice').textContent =
+            `₹${product.price.toLocaleString('en-IN')}`;
+
         document.getElementById('detailProductCondition').textContent = product.condition;
         document.getElementById('detailProductLocation').textContent = product.location;
         document.getElementById('detailProductDescription').textContent = product.description;
@@ -352,5 +400,4 @@ async function showProductDetails(productId) {
         alert("Error loading product details");
 
     }
-
 }

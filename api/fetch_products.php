@@ -1,13 +1,16 @@
 <?php
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+header('Content-Type: text/plain');
 /**
  * Fetch Second-Hand Products API
  * Returns filtered list of products based on query parameters
  */
 
 require_once __DIR__ . '/../config/db.php';
-require_once __DIR__ . '/../config/security.php';
+//require_once __DIR__ . '/../config/security.php';
 
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
@@ -15,13 +18,13 @@ header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Headers: Content-Type');
 
 // Get database connection
-$db = getDBConnection();
+$db = nearby_db_connect();
 
 // Get and sanitize query parameters
-$category = isset($_GET['category']) ? sanitizeInput($_GET['category']) : null;
+$category = $_GET['category'] ?? null;
 $maxPrice = isset($_GET['max_price']) ? (int)$_GET['max_price'] : null;
-$condition = isset($_GET['condition']) ? sanitizeInput($_GET['condition']) : null;
-$search = isset($_GET['search']) ? sanitizeInput($_GET['search']) : null;
+$condition = $_GET['condition'] ?? null;
+$search = $_GET['search'] ?? null;
 $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 20;
 $offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
 
@@ -44,7 +47,7 @@ if ($maxPrice) {
 }
 
 if ($condition) {
-    $query .= " AND p.condition_status = ?";
+    $query .= " AND p.condition = ?";
     $params[] = $condition;
     $types .= "s";
 }
@@ -79,7 +82,7 @@ try {
             'title' => $row['title'],
             'category' => $row['category'],
             'price' => $row['price'],
-            'condition' => $row['condition_status'],
+            'condition' => $row['condition'],
             'location' => $row['location'],
             'description' => $row['description'],
             'contact_phone' => $row['contact_phone'],
@@ -109,7 +112,7 @@ if ($maxPrice) {
 }
 
 if ($condition) {
-    $countQuery .= " AND p.condition_status = ?";
+    $countQuery .= " AND p.condition = ?";
     $countParams[] = $condition;
     $countTypes .= "s";
 }
@@ -149,5 +152,5 @@ $total = $countResult->fetch_assoc()['total'];
     ]);
 }
 
-$db->close();
+nearby_db_close();
 ?>
