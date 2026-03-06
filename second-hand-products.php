@@ -11,6 +11,45 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 </section>
 <section class="products-layout">
+    <!-- Safety Guidelines Section -->
+<div class="glass-card p-4 mb-4">
+    <h2 class="h5 fw-semibold mb-3">
+        <i class="bi bi-shield-check text-success me-2"></i>
+        Safety Guidelines for Buyers & Sellers
+    </h2>
+
+    <div class="row g-3">
+
+        <div class="col-md-6">
+            <div class="d-flex gap-2 align-items-start">
+                <i class="bi bi-geo-alt text-success"></i>
+                <span>Meet in a safe public place when exchanging items.</span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-flex gap-2 align-items-start">
+                <i class="bi bi-search text-success"></i>
+                <span>Inspect the product carefully before making payment.</span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-flex gap-2 align-items-start">
+                <i class="bi bi-cash-stack text-success"></i>
+                <span>Avoid sending advance payments for second-hand products.</span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-flex gap-2 align-items-start">
+                <i class="bi bi-flag text-success"></i>
+                <span>Report suspicious listings or sellers to keep the marketplace safe.</span>
+            </div>
+        </div>
+
+    </div>
+</div>
     <div class="row g-4 align-items-start">
         <aside class="col-12 col-lg-3">
             <div class="filter-panel glass-card p-4" data-filter-form>
