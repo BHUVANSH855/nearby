@@ -404,3 +404,25 @@ Thanks to:
 ---
 
 **NearBy** – *Helping students find a place and feel at home.* 🌟
+
+## Live Demo Status
+
+The live demo hosted at:
+
+https://sumitrathor.rf.gd/nearby/
+
+may currently return a **502 Bad Gateway** error or **connection timeout** due to hosting server limitations.
+
+The project itself works correctly when run locally.
+
+### Running the Project Locally
+
+1. Install **XAMPP**
+2. Clone the repository
+3. Move the project folder into the `htdocs` directory
+4. Start **Apache** and **MySQL** from the XAMPP Control Panel
+5. Open the following URL in your browser:
+
+http://localhost/nearby/
+
+Running the project locally allows contributors to test features even if the live demo is temporarily unavailable.
